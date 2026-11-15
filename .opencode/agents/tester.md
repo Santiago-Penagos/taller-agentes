@@ -34,7 +34,7 @@ Antes de escribir las pruebas, carga las skills `generar-pruebas` y `escribir-co
 
 ## Cuándo terminas
 
-Cuando `docs/reporte-pruebas.md` declara `Estado: APROBADO` o `Estado: ESCALAR`, con la ronda correspondiente, y refleja la salida real de `py -m pytest -q`.
+Cuando `docs/reporte-pruebas.md` declara la ronda y un estado (`FALLA`, `APROBADO` o `ESCALAR`) y refleja la salida real de `py -m pytest -q`. Con `FALLA` en la ronda 1, te detienes: el Programador corrige y se te invoca de nuevo en una sesión nueva para la ronda 2.
 
 ## Cierre
 
