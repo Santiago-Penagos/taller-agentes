@@ -37,6 +37,18 @@ opencode --agent tester
 ```powershell
 py -m pytest -q
 ```
+## Ejecutar el programa
+
+Desde la raíz del repositorio:
+
+```powershell
+py -m src.main                       # pide notas y pesos por teclado
+py -m src.main calcular [ARCHIVO]    # calcula desde un archivo JSON o por teclado
+py -m src.main cargar ARCHIVO        # muestra las notas de un archivo JSON
+py -m src.main guardar ARCHIVO       # pide notas y las guarda en JSON
+py -m src.main ARCHIVO               # calcula desde un archivo JSON
+py -m src.main ayuda                 # muestra la ayuda
+```
 
 ## Estructura
 
@@ -44,3 +56,7 @@ py -m pytest -q
 - `.opencode/skills/`: `disenar-programa`, `escribir-codigo`, `generar-pruebas`.
 - `docs/idea.md`: reglas del programa, en solo lectura.
 - Generados por los agentes: `docs/diseno.md`, `src/notas/`, `tests/` y `docs/reporte-pruebas.md`.
+
+## Cómo se planeó
+
+El sistema se planeó con OpenSpec: la propuesta, las specs, el diseño y las tareas están en `openspec/changes/sistema-agentico-taller/`. Las tareas de agentes, skills y README las aplicó `/opsx-apply`; el contrato, el código y las pruebas los produjeron los propios agentes, cada uno en su sesión.
