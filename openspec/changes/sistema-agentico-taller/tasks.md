@@ -1,12 +1,12 @@
-# Tasks
+﻿# Tasks
 
 ## 1. Agentes y skills
 
-- [ ] 1.1 Crear `.opencode/skills/disenar-programa/SKILL.md` con frontmatter `name` y `description`, pasos numerados, checklist de pensamiento computacional y plantilla de contrato; verificar que el archivo existe y que su `description` declara cuándo usarla.
-- [ ] 1.2 Crear `.opencode/skills/escribir-codigo/SKILL.md` (estilo, tipos, orden por capas, checklist de cierre) y `.opencode/skills/generar-pruebas/SKILL.md` (una prueba por regla, `tmp_path`, plantilla de reporte, escalado a la segunda falla); verificar que ambas tienen frontmatter completo y pasos numerados.
-- [ ] 1.3 Crear los tres agentes primarios en `.opencode/agents/` con solo `description` y `mode: primary`, indicando lectura, escritura, prohibiciones, skill que cargan y criterio de término según el diseño; verificar que ningún archivo usa `tools` ni `permission` de V1.
-- [ ] 1.4 Verificar detección conjunta: `opencode agent list` muestra `arquitecto`, `programador` y `tester` como `primary`; `opencode debug skill` muestra `disenar-programa`, `escribir-codigo` y `generar-pruebas` con su ruta.
-- [ ] 1.5 Verificar que no se tocaron las skills de OpenSpec: `git status --short .agents/skills` no muestra cambios y no se modificó nada en `~/.config/opencode/skills/`.
+- [x] 1.1 Crear `.opencode/skills/disenar-programa/SKILL.md` con frontmatter `name` y `description`, pasos numerados, checklist de pensamiento computacional y plantilla de contrato; verificar que el archivo existe y que su `description` declara cuándo usarla.
+- [x] 1.2 Crear `.opencode/skills/escribir-codigo/SKILL.md` (estilo, tipos, orden por capas, checklist de cierre) y `.opencode/skills/generar-pruebas/SKILL.md` (una prueba por regla, `tmp_path`, plantilla de reporte, escalado a la segunda falla); verificar que ambas tienen frontmatter completo y pasos numerados.
+- [x] 1.3 Crear los tres agentes primarios en `.opencode/agents/` con solo `description` y `mode: primary`, indicando lectura, escritura, prohibiciones, skill que cargan y criterio de término según el diseño; verificar que ningún archivo usa `tools` ni `permission` de V1.
+- [x] 1.4 Verificar detección conjunta: `opencode agent list` muestra `arquitecto`, `programador` y `tester` como `primary`; `opencode debug skill` muestra `disenar-programa`, `escribir-codigo` y `generar-pruebas` con su ruta.
+- [x] 1.5 Verificar que no se tocaron las skills de OpenSpec: `git status --short .agents/skills` no muestra cambios y no se modificó nada en `~/.config/opencode/skills/`.
 
 ## 2. Contrato de diseño
 
@@ -30,7 +30,7 @@
 
 - [ ] 5.1 Ejecutar el ciclo completo con sesiones nuevas (`opencode --agent arquitecto`, luego `programador`, luego `tester`) y verificar con `git status --short` después de cada rol que solo cambian los archivos del rol y que `docs/idea.md` queda igual.
 - [ ] 5.2 Verificar los criterios de aceptación en una sola pasada: 3 agentes y 3 skills detectados, `py -m pytest -q` en verde, reporte con veredicto y sin tercera ronda, y ningún cambio en `opencode.json` ni en las skills de OpenSpec.
-- [ ] 5.3 Escribir `README.md` de menos de una página con instalación de pytest, los tres comandos `opencode --agent`, el comando `py -m pytest -q` y el flujo resumido; verificar que cada comando del README funciona tal como está escrito.
+- [x] 5.3 Escribir `README.md` de menos de una página con instalación de pytest, los tres comandos `opencode --agent`, el comando `py -m pytest -q` y el flujo resumido; verificar que cada comando del README funciona tal como está escrito.
 
 ## Workflow follow-up
 
