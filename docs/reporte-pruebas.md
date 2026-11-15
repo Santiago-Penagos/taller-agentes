@@ -1,24 +1,13 @@
 # Reporte de pruebas
 
-Ronda: 1/2
-Estado: FALLA
+Ronda: 2/2
+Estado: APROBADO
 
 ## Resultado de pytest
 
 ```
-...........F..............                                               [100%]
-================================== FAILURES ===================================
-_________________ test_r4_mitad_exacta_redondea_hacia_arriba __________________
-
-    def test_r4_mitad_exacta_redondea_hacia_arriba():
->       assert promedio([(4.005, 100.0)]) == 4.01
-E       assert 4.0 == 4.01
-E        +  where 4.0 = promedio([(4.005, 100.0)])
-
-tests\test_calculos.py:65: AssertionError
-=========================== short test summary info ============================
-FAILED tests/test_calculos.py::test_r4_mitad_exacta_redondea_hacia_arriba - a...
-1 failed, 25 passed in 0.25s
+..........................                                               [100%]
+26 passed in 0.14s
 ```
 
 ## Reglas
@@ -36,7 +25,7 @@ FAILED tests/test_calculos.py::test_r4_mitad_exacta_redondea_hacia_arriba - a...
 | R3 | test_r3_validar_lista_vacia_lanza_value_error | PASA |
 | R3 | test_r3_promedio_lista_vacia_lanza_value_error | PASA |
 | R4 | test_r4_promedio_ponderado_basico | PASA |
-| R4 | test_r4_mitad_exacta_redondea_hacia_arriba | FALLA |
+| R4 | test_r4_mitad_exacta_redondea_hacia_arriba | PASA |
 | R4 | test_r4_ejemplo_de_tres_pares | PASA |
 | R4 | test_r4_tercer_decimal_exacto_redondea_hacia_arriba | PASA |
 | R5 | test_r5_guardar_y_cargar_conserva_los_pares | PASA |
@@ -54,23 +43,24 @@ FAILED tests/test_calculos.py::test_r4_mitad_exacta_redondea_hacia_arriba - a...
 
 ## Fallos
 
-### R4 - test_r4_mitad_exacta_redondea_hacia_arriba
+Ninguno en esta ronda.
 
-- Esperado: `promedio([(4.005, 100.0)]) == 4.01` (mitad hacia arriba).
-- Obtenido: `4.0`, porque la mitad exacta se redondea hacia el par y no hacia arriba.
-- Ubicación: `src/notas/calculos.py:103`. La llamada `valor.quantize(_CUANTIZADOR)`
-  omite `rounding=ROUND_HALF_UP`, así que usa el modo por defecto del contexto
-  (`ROUND_HALF_EVEN`). `ROUND_HALF_UP` sí está importado en `src/notas/calculos.py:8`,
-  pero no se aplica.
+El único fallo de la ronda 1 (R4, `test_r4_mitad_exacta_redondea_hacia_arriba`, obtenido
+`4.0` en vez de `4.01`) quedó corregido: `src/notas/calculos.py:103` ahora aplica
+`valor.quantize(_CUANTIZADOR, rounding=ROUND_HALF_UP)`.
 
 ## Observaciones
 
+- Las pruebas no cambiaron entre rondas: se mantienen las mismas 26 pruebas de la ronda 1,
+  ejecutadas contra el código corregido.
 - R6 en `presentacion.main`: el contrato no fija la sintaxis de `argv`. La prueba usa la
   forma documentada por el programa (`main(["cargar", RUTA])`) para llegar a la carga de un
   archivo inexistente y comprobar que devuelve `1` sin propagar. Si el Programador cambiara
   esa sintaxis, habría que revisar esta prueba junto con el contrato.
+- `git status --short` no muestra archivos JSON nuevos: todas las pruebas de persistencia usan
+  `tmp_path`.
 
 ## Veredicto
 
-FALLA: el Programador debe corregir R4 en `promedio` para redondear con `Decimal` y
-`ROUND_HALF_UP` a 2 decimales. R1, R2, R3, R5 y R6 se aprueban en esta ronda.
+APROBADO: R1, R2, R3, R4, R5 y R6 se cumplen y las 26 pruebas pasan. No hay correcciones
+pendientes para el Programador.
