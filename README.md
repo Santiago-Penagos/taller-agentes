@@ -56,6 +56,7 @@ py -m src.main ayuda                 # muestra la ayuda
 - `.opencode/skills/`: `disenar-programa`, `escribir-codigo`, `generar-pruebas`.
 - `docs/idea.md`: reglas del programa, en solo lectura.
 - Generados por los agentes: `docs/diseno.md`, `src/notas/`, `tests/` y `docs/reporte-pruebas.md`.
+- `.agents/skills/`: skills propias de OpenSpec; no forman parte de las tres skills del taller.
 
 ## Cómo se planeó
 
