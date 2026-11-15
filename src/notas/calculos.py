@@ -100,5 +100,5 @@ def promedio(notas: Sequence[ParNota]) -> float:
         suma += Decimal(str(nota)) * Decimal(str(peso))
 
     valor = suma / Decimal(str(PESO_TOTAL))
-    redondeado = valor.quantize(_CUANTIZADOR)
+    redondeado = valor.quantize(_CUANTIZADOR, rounding=ROUND_HALF_UP)
     return float(redondeado)
